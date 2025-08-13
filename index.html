@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SimplyTrueFoods — Quick. Healthy. Simply True.</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ===== NAVBAR (sticky) ===== -->
+  <header class="header">
+    <div class="nav container">
+      <a class="logo" href="#home">SimplyTrueFoods</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        ☰
+      </button>
+      <nav class="nav-links" id="navMenu" role="navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#special" class="nav-link">Meal of the Day</a>
+        <a href="#calorie" class="nav-link">Calorie Tool</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero container">
+    <div class="hero-card">
+      <h1>Quick • Healthy • Simply True</h1>
+      <p>Nutritious, affordable meals crafted for busy professionals.</p>
+      <div class="badge">💚 Whole ingredients • ⚡ Ready in minutes</div>
+    </div>
+    <div class="hero-visual">
+      <div class="float float-1">🥑</div>
+      <div class="float float-2">🥕</div>
+      <div class="float float-3">🍓</div>
+      <div class="float float-4">🥬</div>
+    </div>
+  </section>
+
+  <!-- ===== CONTROLS (search + category chips) ===== -->
+  <section class="controls container">
+    <div class="search">
+      <span>🔎</span>
+      <input id="searchInput" type="text" placeholder="Search dishes… e.g., salad, wrap, smoothie"/>
+    </div>
+    <div class="chips" id="chips">
+      <button class="chip active" data-cat="all">✨ All</button>
+      <button class="chip" data-cat="breakfast">🥞 Breakfast</button>
+      <button class="chip" data-cat="lunch">🥗 Lunch</button>
+      <button class="chip" data-cat="snack">🍪 Snacks</button>
+    </div>
+  </section>
+
+  <!-- ===== SPECIAL / MEAL OF THE DAY ===== -->
+  <section id="special" class="special container">
+    <h2>🍽 Meal of the Day</h2>
+    <p id="specialText">Loading…</p>
+    <button id="newMeal" class="btn">New Suggestion</button>
+  </section>
+
+  <!-- ===== MENU GRID ===== -->
+  <section id="menu" class="container">
+    <h2>Our Menu</h2>
+    <div id="menuGrid" class="grid"></div>
+  </section>
+
+  <!-- ===== CALORIE TOOL ===== -->
+  <section id="calorie" class="calorie container">
+    <div class="panel">
+      <h2>🔥 Calorie Tool</h2>
+      <p class="muted">Tick items to build your meal plan and see total calories.</p>
+      <div id="calorieOptions"></div>
+    </div>
+    <div class="panel meter">
+      <!-- Progress ring (SVG) -->
+      <svg class="ring" viewBox="0 0 220 220" aria-label="Calorie progress">
+        <circle class="bg" cx="110" cy="110" r="90"></circle>
+        <circle class="fg" id="ringFg" cx="110" cy="110" r="90"
+                stroke-dasharray="565.49" stroke-dashoffset="565.49"></circle>
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">
+          <tspan id="kcalTotal">0</tspan> kcal
+        </text>
+      </svg>
+      <div class="target">
+        <div><strong>Daily Target:</strong> <span id="targetVal">800</span> kcal</div>
+        <input id="targetSlider" class="slider" type="range" min="400" max="2000" step="50" value="800" />
+        <small class="muted">Adjust target to see the ring fill proportionally.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact container">
+    <div class="panel">
+      <h2>Contact Us</h2>
+      <p class="muted">Have a question or suggestion? We’d love to hear from you.</p>
+      <form onsubmit="event.preventDefault(); alert('Thanks! We will reach out soon.');">
+        <div class="grid-2">
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <input type="text" placeholder="Subject">
+        <textarea placeholder="Your message" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="panel">
+      <h2>Reach Us</h2>
+      <ul class="contact-list">
+        <li>📍 12, Wellness Park, HSR Layout, Bengaluru</li>
+        <li>📞 <a href="tel:+919999999999">+91 99999 99999</a></li>
+        <li>✉️ <a href="mailto:hello@simplytruefoods.in">hello@simplytruefoods.in</a></li>
+        <li class="socials">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Twitter / X">🐦</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+        </li>
+      </ul>
+      <p class="muted small">* Demo contact info for the internship project.</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2025 SimplyTrueFoods — Eat Smart, Live Well</span>
+      <a href="#home" class="back-top">↑ Back to top</a>
+    </div>
+  </footer>
+
+  <!-- ===== ORDER POPUP ===== -->
+  <div id="orderPopup" class="popup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup__box">
+      <button class="popup__close" onclick="closePopup()" aria-label="Close dialog">×</button>
+      <h3 id="popupTitle" class="popup__title">Order</h3>
+      <p id="popupMsg" class="popup__desc">Thanks for your interest! Ordering will be available soon.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
